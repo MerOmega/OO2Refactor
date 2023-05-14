@@ -13,6 +13,11 @@ public class PersonaFisica extends Persona{
         return 0.15;
     }
 
+    @Override
+    public String getTipoDePersona() {
+        return "fisica";
+    }
+
     public String getDoc() {
         return doc;
     }

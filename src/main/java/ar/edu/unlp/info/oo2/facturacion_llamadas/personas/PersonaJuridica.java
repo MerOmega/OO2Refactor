@@ -8,6 +8,10 @@ public class PersonaJuridica extends Persona{
         this.cuit = cuit;
     }
 
+    public String getTipoDePersona() {
+        return "juridica";
+    }
+
     public String getCuit() {
         return cuit;
     }

@@ -7,6 +7,7 @@ import ar.edu.unlp.info.oo2.facturacion_llamadas.personas.PersonaFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Persoonal {
@@ -30,13 +31,12 @@ public class Persoonal {
         }
     }
 
-    public Persona registrarUsuario(String data, String nombre, String t) {
+    public Persona registrarUsuario(String data, String nombre, String tipoDePersona) {
         PersonaFactory personaFactory = new PersonaFactory();
-        Persona persona = personaFactory.crearPersona(t,data);
+        Persona persona = personaFactory.crearPersona(tipoDePersona,data);
         persona.setNya(nombre);
         String tel = guiasTelefonicas.guia.last();
         guiasTelefonicas.guia.remove(tel);
-        persona.setT(persona.getClass().getSimpleName());
         persona.setTel(tel);
         persona.setSis(this);
 
@@ -93,9 +93,9 @@ public class Persoonal {
                     auxc += l.dur * 200 + (l.dur * 200 * 0.21);
                 }
 
-                if (aux.t == "fisica") {
+                if (Objects.equals(aux.getTipoDePersona(), "fisica")) {
                     auxc -= auxc * descuentoFis;
-                } else if (aux.t == "juridica") {
+                } else if (Objects.equals(aux.getTipoDePersona(), "juridica")) {
                     auxc -= auxc * descuentoJur;
                 }
                 c += auxc;
