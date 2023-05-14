@@ -29,37 +29,27 @@ public class Persoonal {
         persona.setTelefono(tel);
         persona.setSis(this);
 
-        if (persona instanceof PersonaFisica) {
-            ((PersonaFisica) persona).setDocumento(data);
-        } else if (persona instanceof PersonaJuridica) {
-            ((PersonaJuridica) persona).setCuit(data);
-        }
-
         listaDePersonas.add(persona);
         return persona;
     }
 
     public boolean eliminarUsuario(Persona p) {
-        List<Persona> l = p.getSis().listaDePersonas.stream().filter(persona -> persona != p).collect(Collectors.toList());
-        boolean borre = false;
-        if (l.size() < listaDePersonas.size()) {
-            this.listaDePersonas = l;
-            this.guiasTelefonicas.guia.add(p.getTelefono());
-            borre = true;
+        boolean borrado = listaDePersonas.remove(p);
+        if (borrado) {
+            guiasTelefonicas.guia.add(p.getTelefono());
         }
-        return borre;
-
+        return borrado;
     }
 
     public Llamada registrarLlamada(Persona q, Persona q2, String t, int d) {
-        Llamada x = new Llamada();
-        x.setTipoDeLlamada(t);
-        x.setEmisor(q.getTelefono());
-        x.setRemitente(q2.getTelefono());
-        x.setDuracion(d);
-        listaDeLlamadas.add(x);
-        q.addLlamadaALista(x);
-        return x;
+        Llamada llamada = new Llamada();
+        llamada.setTipoDeLlamada(t);
+        llamada.setEmisor(q.getTelefono());
+        llamada.setRemitente(q2.getTelefono());
+        llamada.setDuracion(d);
+        listaDeLlamadas.add(llamada);
+        q.addLlamadaALista(llamada);
+        return llamada;
 
     }
 
