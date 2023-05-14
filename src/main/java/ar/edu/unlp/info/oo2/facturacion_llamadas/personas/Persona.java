@@ -7,32 +7,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Persona {
-	public List<Llamada> lista1 = new ArrayList<Llamada>();
-	public String nya;
-	public String tel;
-	public Persoonal sis;
+		private List<Llamada> listaDeLlamadas = new ArrayList<Llamada>();
+
+		private String nombreYApelldo;
+		private String telefono;
+		private Persoonal sis;
 
 	public abstract double calcularDescuento();
 	public abstract String getTipoDePersona();
 
-	public List<Llamada> getLista1() {
-		return lista1;
-	}
-	public void setLista1(List<Llamada> lista1) {
-		this.lista1 = lista1;
+	public List<Llamada> getListaDeLlamadas() {
+		return listaDeLlamadas;
 	}
 
-	public String getNya() {
-		return nya;
+	public void setListaDeLlamadas(List<Llamada> listaDeLlamadas) {
+		this.listaDeLlamadas = listaDeLlamadas;
 	}
-	public void setNya(String nya) {
-		this.nya = nya;
+
+	public void addLlamadaALista(Llamada llamada){
+		this.listaDeLlamadas.add(llamada);
 	}
-	public String getTel() {
-		return tel;
+
+	public String getNombreYApelldo() {
+		return nombreYApelldo;
 	}
-	public void setTel(String tel) {
-		this.tel = tel;
+
+	public void setNombreYApelldo(String nombreYApelldo) {
+		this.nombreYApelldo = nombreYApelldo;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public Persoonal getSis() {
+		return sis;
 	}
 
 	public void setSis(Persoonal persoonal) {

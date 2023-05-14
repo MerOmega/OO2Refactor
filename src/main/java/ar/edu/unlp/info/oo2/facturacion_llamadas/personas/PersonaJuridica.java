@@ -21,6 +21,6 @@ public class PersonaJuridica extends Persona{
 
     @Override
     public double calcularDescuento() {
-        return 0;
+        return 0.15;
     }
 }

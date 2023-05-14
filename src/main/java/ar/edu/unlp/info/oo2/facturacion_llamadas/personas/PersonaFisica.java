@@ -2,15 +2,15 @@ package ar.edu.unlp.info.oo2.facturacion_llamadas.personas;
 
 public class PersonaFisica extends Persona{
 
-    public String doc;
+    public String documento;
 
-    public PersonaFisica(String doc) {
-        this.doc = doc;
+    public PersonaFisica(String documento) {
+        this.documento = documento;
     }
 
     @Override
     public double calcularDescuento() {
-        return 0.15;
+        return 0;
     }
 
     @Override
@@ -18,10 +18,10 @@ public class PersonaFisica extends Persona{
         return "fisica";
     }
 
-    public String getDoc() {
-        return doc;
+    public String getDocumento() {
+        return documento;
     }
-    public void setDoc(String doc) {
-        this.doc = doc;
+    public void setDocumento(String documento) {
+        this.documento = documento;
     }
 }
