@@ -8,20 +8,20 @@ public class PersonaFisica extends Persona{
         this.documento = documento;
     }
 
-    @Override
-    public double calcularDescuento() {
-        return 0;
+    public String getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(String documento) {
+        this.documento = documento;
     }
 
     @Override
     public String getTipoDePersona() {
         return "fisica";
     }
-
-    public String getDocumento() {
-        return documento;
-    }
-    public void setDocumento(String documento) {
-        this.documento = documento;
+    @Override
+    public double calcularDescuento() {
+        return 0;
     }
 }
