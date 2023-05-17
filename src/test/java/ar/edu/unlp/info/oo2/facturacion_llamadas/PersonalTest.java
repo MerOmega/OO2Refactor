@@ -6,32 +6,36 @@ import ar.edu.unlp.info.oo2.facturacion_llamadas.personas.Persona;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class PersoonalTest {
+class PersonalTest {
 	
-	Persoonal sistema;
+	Personal sistema;
 	Persona emisorPersonaFisca, remitentePersonaFisica, emisorPersonaJuridica, remitentePersonaJuridica;
+	StrategyTypes nacional,internacional;
 	
 	@BeforeEach
 	public void setUp() {
-		this.sistema = new Persoonal();
+		this.sistema = new Personal();
 		this.sistema.agregarTelefono("2214444554");
 		this.sistema.agregarTelefono("2214444555");
 		this.sistema.agregarTelefono("2214444556");
 		this.sistema.agregarTelefono("2214444557");
+		
+		this.nacional = new StrategyNacional();
+		this.internacional = new StrategyInternacional();
 		
 		this.emisorPersonaFisca = sistema.registrarUsuario("11555666", "Marcelo Tinelli" , "fisica");
 		this.remitentePersonaFisica = sistema.registrarUsuario("00000001", "Mirtha Legrand" , "fisica");
 		this.emisorPersonaJuridica = sistema.registrarUsuario("17555222", "Felfort" , "juridica");
 		this.remitentePersonaJuridica = sistema.registrarUsuario("25765432", "Moovistar" , "juridica");
 		
-		this.sistema.registrarLlamada(emisorPersonaJuridica, remitentePersonaFisica, "nacional", 10);
-		this.sistema.registrarLlamada(emisorPersonaJuridica, remitentePersonaFisica, "internacional", 8);
-		this.sistema.registrarLlamada(emisorPersonaJuridica, remitentePersonaJuridica, "nacional", 5);
-		this.sistema.registrarLlamada(emisorPersonaJuridica, remitentePersonaJuridica, "internacional", 7);
-		this.sistema.registrarLlamada(emisorPersonaFisca, remitentePersonaFisica, "nacional", 15);
-		this.sistema.registrarLlamada(emisorPersonaFisca, remitentePersonaFisica, "internacional", 45);
-		this.sistema.registrarLlamada(emisorPersonaFisca, remitentePersonaJuridica, "nacional", 13);
-		this.sistema.registrarLlamada(emisorPersonaFisca, remitentePersonaJuridica, "internacional", 17);
+		this.sistema.registrarLlamada(emisorPersonaJuridica, remitentePersonaFisica, nacional, 10);
+		this.sistema.registrarLlamada(emisorPersonaJuridica, remitentePersonaFisica, internacional, 8);
+		this.sistema.registrarLlamada(emisorPersonaJuridica, remitentePersonaJuridica, nacional, 5);
+		this.sistema.registrarLlamada(emisorPersonaJuridica, remitentePersonaJuridica, internacional, 7);
+		this.sistema.registrarLlamada(emisorPersonaFisca, remitentePersonaFisica, nacional, 15);
+		this.sistema.registrarLlamada(emisorPersonaFisca, remitentePersonaFisica, internacional, 45);
+		this.sistema.registrarLlamada(emisorPersonaFisca, remitentePersonaJuridica, nacional, 13);
+		this.sistema.registrarLlamada(emisorPersonaFisca, remitentePersonaJuridica, internacional, 17);
 		
 	}
 

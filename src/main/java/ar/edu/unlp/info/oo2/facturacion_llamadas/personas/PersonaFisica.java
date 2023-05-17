@@ -4,8 +4,10 @@ public class PersonaFisica extends Persona{
 
     public String documento;
 
-    public PersonaFisica(String documento) {
+    public PersonaFisica(String documento,String nombreYApellido,String telefono) {
         this.documento = documento;
+        super.setNombreYApelldo(nombreYApellido);
+        super.setTelefono(telefono);
     }
 
     public String getDocumento() {
@@ -24,4 +26,10 @@ public class PersonaFisica extends Persona{
     public double calcularDescuento() {
         return 0;
     }
+    
+    @Override
+    public double calcularMontoTotalLlamadas() {
+		double suma = super.getListaDeLlamadas().stream().mapToDouble(llamada -> llamada.getAumento() - this.calcularDescuento()).sum();
+		return 0;
+	}
 }
