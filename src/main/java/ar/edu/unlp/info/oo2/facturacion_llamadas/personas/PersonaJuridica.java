@@ -1,5 +1,7 @@
 package ar.edu.unlp.info.oo2.facturacion_llamadas.personas;
 
+import ar.edu.unlp.info.oo2.facturacion_llamadas.Llamada;
+
 public class PersonaJuridica extends Persona{
 
     public String cuit;
@@ -26,10 +28,5 @@ public class PersonaJuridica extends Persona{
     public double calcularDescuento() {
         return 0.15;
     }
-    
-    @Override
-    public double calcularMontoTotalLlamadas() {
-		double suma = super.getListaDeLlamadas().stream().mapToDouble(llamada -> llamada.getAumento() - this.calcularDescuento()).sum();
-		return 0;
-	}
+
 }

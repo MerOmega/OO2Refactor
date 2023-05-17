@@ -14,7 +14,6 @@ public abstract class Persona {
 
 	public abstract double calcularDescuento();
 	public abstract String getTipoDePersona();
-	public abstract double calcularMontoTotalLlamadas();
 
 	public List<Llamada> getListaDeLlamadas() {
 		return listaDeLlamadas;
@@ -44,4 +43,7 @@ public abstract class Persona {
 		this.telefono = telefono;
 	}
 
+	public double calcularMontoTotalLlamadas() {
+		return this.getListaDeLlamadas().stream().mapToDouble(llamada -> llamada.getAumento() - this.calcularDescuento()).sum();
+	}
 }
