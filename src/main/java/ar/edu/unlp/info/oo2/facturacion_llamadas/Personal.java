@@ -28,9 +28,9 @@ public class Personal {
         return persona;
     }
 
-    public boolean eliminarUsuario(Persona p) {
-        if (listaDePersonas.remove(p)) {
-            guiaTelefonica.addTelefono(p.getTelefono());
+    public boolean eliminarUsuario(Persona persona) {
+        if (listaDePersonas.remove(persona)) {
+            guiaTelefonica.addTelefono(persona.getTelefono());
             return true;
         }
         return false;
