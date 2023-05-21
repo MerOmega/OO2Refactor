@@ -44,6 +44,12 @@ public abstract class Persona {
 	}
 
 	public double calcularMontoTotalLlamadas() {
-		return this.getListaDeLlamadas().stream().mapToDouble(llamada -> llamada.getAumento() - this.calcularDescuento()).sum();
+		double c = 0;
+		for (Llamada l : this.getListaDeLlamadas()) {
+			double auxc = l.getAumento();
+			auxc -= auxc * this.calcularDescuento();
+			c += auxc;
+		}
+		return c;
 	}
 }
