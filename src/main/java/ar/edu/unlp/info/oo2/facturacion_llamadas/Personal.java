@@ -36,7 +36,7 @@ public class Personal {
         return false;
     }
 
-    public Llamada registrarLlamada(Persona personaEmisor , Persona personaRemitente, StrategyTypes tipoDeLlamada, int duracion) {
+    public Llamada registrarLlamada(Persona personaEmisor , Persona personaRemitente, TiposLlamadas tipoDeLlamada, int duracion) {
         Llamada llamada = new Llamada(tipoDeLlamada,personaEmisor.getTelefono(),personaRemitente.getTelefono(),duracion);
         listaDeLlamadas.add(llamada);
         personaEmisor.addLlamadaALista(llamada);

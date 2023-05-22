@@ -10,7 +10,7 @@ class PersonalTest {
 	
 	Personal sistema;
 	Persona emisorPersonaFisca, remitentePersonaFisica, emisorPersonaJuridica, remitentePersonaJuridica;
-	StrategyTypes nacional,internacional;
+	TiposLlamadas nacional,internacional;
 	
 	@BeforeEach
 	public void setUp() {
@@ -20,8 +20,8 @@ class PersonalTest {
 		this.sistema.agregarTelefono("2214444556");
 		this.sistema.agregarTelefono("2214444557");
 		
-		this.nacional = new StrategyNacional();
-		this.internacional = new StrategyInternacional();
+		this.nacional = new TipoLlamadasNacional();
+		this.internacional = new TipoLlamadasInternacional();
 		
 		this.emisorPersonaFisca = sistema.registrarUsuario("11555666", "Marcelo Tinelli" , "fisica");
 		this.remitentePersonaFisica = sistema.registrarUsuario("00000001", "Mirtha Legrand" , "fisica");
