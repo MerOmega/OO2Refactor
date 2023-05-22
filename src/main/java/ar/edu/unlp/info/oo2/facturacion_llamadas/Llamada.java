@@ -3,7 +3,7 @@ package ar.edu.unlp.info.oo2.facturacion_llamadas;
 import ar.edu.unlp.info.oo2.facturacion_llamadas.personas.Persona;
 
 public class Llamada {
-	private String tipoDeLlamada;
+	private StrategyTypes tipoDeLlamada;
 	private String emisor;
 	private String remitente;
 	private int duracion;
@@ -12,22 +12,22 @@ public class Llamada {
 
 	}
 
-	public Llamada(String tipoDeLlamada, String personaEmisor, String personaRemitente, int duracion) {
+	public Llamada(StrategyTypes tipoDeLlamada, String personaEmisor, String personaRemitente, int duracion) {
 		this.tipoDeLlamada = tipoDeLlamada;
 		this.emisor= personaEmisor;
 		this.remitente= personaRemitente;
 		this.duracion = duracion;
 	}
 
-	public String getTipoDeLlamada() {
+	public StrategyTypes getTipoDeLlamada() {
 		return tipoDeLlamada;
 	}
 
-	public void setTipoDeLlamada(String tipoDeLlamada) {
+	public void setTipoDeLlamada(StrategyTypes tipoDeLlamada) {
 		this.tipoDeLlamada = tipoDeLlamada;
 	}
-	public void setEmisor(String q) {
-		emisor = q;
+	public void setEmisor(String emisor) {
+		this.emisor = emisor;
 	}
 	public String getRemitente() {
 		return remitente;
@@ -46,5 +46,9 @@ public class Llamada {
 
 	public void setDuracion(int duracion) {
 		this.duracion = duracion;
+	}
+	
+	public double getAumento() {
+		return this.tipoDeLlamada.getAumento(duracion);
 	}
 }

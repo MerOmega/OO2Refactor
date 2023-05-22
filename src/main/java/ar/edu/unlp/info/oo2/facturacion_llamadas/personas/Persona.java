@@ -1,7 +1,7 @@
 package ar.edu.unlp.info.oo2.facturacion_llamadas.personas;
 
 import ar.edu.unlp.info.oo2.facturacion_llamadas.Llamada;
-import ar.edu.unlp.info.oo2.facturacion_llamadas.Persoonal;
+import ar.edu.unlp.info.oo2.facturacion_llamadas.Personal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,6 @@ public abstract class Persona {
 
 		private String nombreYApelldo;
 		private String telefono;
-		private Persoonal sis;
 
 	public abstract double calcularDescuento();
 	public abstract String getTipoDePersona();
@@ -44,11 +43,13 @@ public abstract class Persona {
 		this.telefono = telefono;
 	}
 
-	public Persoonal getSis() {
-		return sis;
-	}
-
-	public void setSis(Persoonal persoonal) {
-		this.sis = persoonal;
+	public double calcularMontoTotalLlamadas() {
+		double c = 0;
+		for (Llamada l : this.getListaDeLlamadas()) {
+			double auxc = l.getAumento();
+			auxc -= auxc * this.calcularDescuento();
+			c += auxc;
+		}
+		return c;
 	}
 }
