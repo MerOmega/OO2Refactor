@@ -4,7 +4,7 @@ import ar.edu.unlp.info.oo2.facturacion_llamadas.Llamada;
 
 public class PersonaFisica extends Persona{
 
-    public String documento;
+    private String documento;
 
     public PersonaFisica(String documento,String nombreYApellido,String telefono) {
         this.documento = documento;

@@ -10,11 +10,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Personal {
-    List<Persona> listaDePersonas = new ArrayList<Persona>();
+    private List<Persona> listaDePersonas = new ArrayList<Persona>();
 
-    List<Llamada> listaDeLlamadas = new ArrayList<Llamada>();
-
-    GuiaTelefonica guiaTelefonica = new GuiaTelefonica();
+    private GuiaTelefonica guiaTelefonica = new GuiaTelefonica();
 
     public boolean agregarTelefono(String telefono) {
         return guiaTelefonica.addTelefono(telefono);
@@ -38,7 +36,6 @@ public class Personal {
 
     public Llamada registrarLlamada(Persona personaEmisor , Persona personaRemitente, TiposLlamadas tipoDeLlamada, int duracion) {
         Llamada llamada = new Llamada(tipoDeLlamada,personaEmisor.getTelefono(),personaRemitente.getTelefono(),duracion);
-        listaDeLlamadas.add(llamada);
         personaEmisor.addLlamadaALista(llamada);
         return llamada;
     }

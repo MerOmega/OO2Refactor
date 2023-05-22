@@ -4,7 +4,7 @@ import ar.edu.unlp.info.oo2.facturacion_llamadas.Llamada;
 
 public class PersonaJuridica extends Persona{
 
-    public String cuit;
+    private String cuit;
 
     public PersonaJuridica(String cuit,String nombreYApellido,String telefono) {
         this.cuit = cuit;
